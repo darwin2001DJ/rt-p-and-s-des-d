@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import CollegeDetails from "./CollegeDetails";
+import CollegeDetails from "./collegeDetails";
 import "./App.css";
+
 class App extends Component {
   constructor() {
     super();
@@ -61,7 +62,19 @@ class App extends Component {
     const { collegeData } = this.state;
     return (
       <div>
-        <h1 className="header">Ebox Colleges</h1>
+        {collegeData.map((data) => {
+          return (
+            <CollegeDetails
+              id={data.id}
+              name={data.name}
+              location={data.location}
+              affilated={data.affilated}
+              TNEAcode={data.TNEAcode}
+              averagePlacementRecord={data.averagePlacementRecord}
+              coursesOffered={data.coursesOffered}
+            />
+          );
+        })}
       </div>
     );
   };
