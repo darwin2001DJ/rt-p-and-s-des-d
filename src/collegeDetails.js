@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes, { string } from "prop-types";
-export default class collegeDetails extends Component {
+import "./card.css";
+export default class CollegeDetails extends Component {
   render() {
     const {
-      id,
       name,
       location,
       affilatedTo,
@@ -13,20 +13,43 @@ export default class collegeDetails extends Component {
     } = this.props;
     return (
       <>
-        <h1 className="header">Ebox Colleges</h1>
-        <h1>{id}</h1>
-        <h1>{name}</h1>
-        <h1>{location}</h1>
-        <h1>{affilatedTo}</h1>
-        <h1>{TNEAcode}</h1>
-        <h1>{averagePlacementRecord}</h1>
-        <h1>{coursesOffered}</h1>
+        <div className="card">
+          <table>
+            <thead></thead>
+            <tbody>
+              <tr>
+                <th>College Name:</th>
+                <td>{name}</td>
+              </tr>
+              <tr>
+                <th>Location:</th>
+                <td>{location}</td>
+              </tr>
+              <tr>
+                <th>Affiliated to:</th>
+                <td>{affilatedTo}</td>
+              </tr>
+              <tr>
+                <th>TNEA Code:</th>
+                <td>{TNEAcode}</td>
+              </tr>
+              <tr>
+                <th>Placement Record:</th>
+                <td>{averagePlacementRecord}</td>
+              </tr>
+              <tr>
+                <th>Courses Offered:</th>
+                <td>{coursesOffered}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     );
   }
 }
 
-collegeDetails.propType = {
+CollegeDetails.propType = {
   id: PropTypes.number,
   name: PropTypes.string,
   location: PropTypes.string,
@@ -36,7 +59,7 @@ collegeDetails.propType = {
   coursesOffered: PropTypes.array,
 };
 
-collegeDetails.defaultProps = {
+CollegeDetails.defaultProps = {
   id: 1,
   name: "ebox-college",
   location: "coimbatore",

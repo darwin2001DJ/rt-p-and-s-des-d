@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CollegeDetails from "./collegeDetails";
+import CollegeDetails from "./CollegeDetails";
 import "./App.css";
 
 class App extends Component {
@@ -61,20 +61,22 @@ class App extends Component {
   render = () => {
     const { collegeData } = this.state;
     return (
-      <div>
-        {collegeData.map((data) => {
-          return (
-            <CollegeDetails
-              id={data.id}
-              name={data.name}
-              location={data.location}
-              affilated={data.affilated}
-              TNEAcode={data.TNEAcode}
-              averagePlacementRecord={data.averagePlacementRecord}
-              coursesOffered={data.coursesOffered}
-            />
-          );
-        })}
+      <div className="App">
+        <h1 className="header">Ebox Colleges</h1>
+        <div className="container">
+          {collegeData.map((data) => {
+            return (
+              <CollegeDetails
+                name={data.name}
+                location={data.location}
+                affilated={data.affilated}
+                TNEAcode={data.TNEAcode}
+                averagePlacementRecord={data.averagePlacementRecord}
+                coursesOffered={data.coursesOffered}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   };
